@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput, Platform, StyleSheet} from 'react-native';
+import {View, Text, TextInput,
+  TouchableOpacity,
+  Platform, StyleSheet} from 'react-native';
 
 class SignIn extends Component {
   state = {
@@ -12,18 +14,27 @@ class SignIn extends Component {
     return (
       <View>
         <Text style={styles.header}>Please Sign In</Text>
+
         <Text>Email:</Text>
-        <TextInput value={email} onChangeText={this.setEmail}
+        <TextInput value={email}
+                   onChangeText={this.setEmail}
                    keyboardType='email-address'
-                   style={styles.input}/>
+                   style={styles.input} />
+
         <Text>Password:</Text>
         <TextInput value={password}
                    onChangeText={this.setPassword}
                    style={styles.input}
-                   secureTextEntry
-        />
+                   secureTextEntry />
+        <TouchableOpacity onPress={this.signIn}>
+          <Text>Sign In</Text>
+        </TouchableOpacity>
       </View>
     );
+  }
+
+  signIn = () => {
+    console.log('-----', 'signIn');
   }
 
   setPassword = password => this.setState({password})
