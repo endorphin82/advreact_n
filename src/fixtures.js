@@ -2383,7 +2383,7 @@ export const data = {
       "where": "Paris, France"
     }
   },
-  'people': {
+  "people": {
     "-LaKYLYgS1C6qKV0r_wQ": {
       "email": "qwe10@qwe.ru",
       "events": ["-L_qIPU9o4Ez0FdwkLUO", "-L_qIPU1UY1HaZDxNBtn"],
@@ -2403,11 +2403,11 @@ export const data = {
       "lastName": "qwe12"
     }
   }
-}
+};
 
 function toArr(obj) {
-  return Object.entries(obj).map(([uid, value]) => ({uid, ...value}))
+  return Object.entries(obj).map(([uid, value]) => ({ uid, ...value }));
 }
 
-export const eventList = toArr(data.events)
-export const peopleList = toArr(data.people)
+export const eventList = toArr(data.events);
+export const peopleList = toArr(data.people);
