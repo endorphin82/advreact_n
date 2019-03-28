@@ -14,7 +14,7 @@ class Event extends Component {
       <View style={styles.container}>
         <Text style={[styles.text, styles.header]}>{event.title}</Text>
         <View>
-          <Image source={{ uri: "http://lorempixel.com/g/200/100/" }}
+          <Image source={{ uri: "http://lorempixel.com/g/200/100/technics/" }}
                  style={styles.image}/>
           <Text>{event.where}</Text>
           <Text>{event.when}</Text>
@@ -27,13 +27,15 @@ class Event extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    // borderWidth: 2,
+    // borderColor: '#0ff',
     paddingTop: 15,
     height: "100%",
     justifyContent: "space-around",
     alignItems: "center"
   },
   header: {
-    backgroundColor: "#ccc",
+    backgroundColor: "#cc0",
     shadowColor: "#000",
     shadowOpacity: 0.8,
     shadowOffset: {

@@ -1,31 +1,33 @@
-import React, {Component} from 'react';
-import {View, Text, TextInput,
+import React, { Component } from "react";
+import {
+  View, Text, TextInput,
   TouchableOpacity,
-  Platform, StyleSheet} from 'react-native';
+  Platform, StyleSheet
+} from "react-native";
 
 class SignIn extends Component {
   state = {
-    email: '',
-    password: ''
-  }
+    email: "",
+    password: ""
+  };
 
   render() {
-    const {email, password} = this.state
+    const { email, password } = this.state;
     return (
-      <View>
+      <View style={styles.view}>
         <Text style={styles.header}>Please Sign In</Text>
 
         <Text>Email:</Text>
         <TextInput value={email}
                    onChangeText={this.setEmail}
                    keyboardType='email-address'
-                   style={styles.input} />
+                   style={styles.input}/>
 
         <Text>Password:</Text>
         <TextInput value={password}
                    onChangeText={this.setPassword}
                    style={styles.input}
-                   secureTextEntry />
+                   secureTextEntry/>
         <TouchableOpacity onPress={this.signIn}>
           <Text>Sign In</Text>
         </TouchableOpacity>
@@ -34,28 +36,35 @@ class SignIn extends Component {
   }
 
   signIn = () => {
-    console.log('-----', 'signIn');
-  }
+    console.log("-----", "signIn", this.state);
+  };
 
-  setPassword = password => this.setState({password})
-  setEmail = email => this.setState({email})
+  setPassword = password => this.setState({ password });
+  setEmail = email => this.setState({ email });
 }
 
-// const styles = StyleSheet.create({})
-const styles = {
+const styles = StyleSheet.create({
+  view:{
+    // borderWidth: 2,
+    // borderColor: '#f00',
+    padding: 20
+  },
   header: {
     fontSize: 20,
-    fontWeight: 'bool'
+    fontWeight: "bold"
   },
   input: {
     ...Platform.select({
       ios: {
-        borderBottomColor: '#000',
+        borderBottomColor: "#ccc",
         borderBottomWidth: 1
       },
-      android: {}
+      android: {
+        borderBottomColor: "#ccc",
+        borderBottomWidth: 1
+      }
     })
   }
-}
+});
 
 export default SignIn;
