@@ -17,7 +17,8 @@ class Root extends Component {
         {/*<Text>hi3</Text>*/}
         {/*<SignIn/>*/}
         {/*<Hello/>*/}
-        <EventList/>
+        {/*<EventList/>*/}
+        <Event/>
       </View>
     );
   }
