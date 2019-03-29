@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-import { View, Image, Text, StyleSheet } from "react-native";
+import { Button, View, Image, Text, StyleSheet } from "react-native";
 import { eventList } from "../../fixtures";
+import ConfirmModal from "../common/ConfirmModal";
 
 class Event extends Component {
-
   static defaultProps = {
     event: eventList[0]
+  };
+
+  state = {
+    confirmModal: false
   };
 
   render() {
@@ -20,9 +24,31 @@ class Event extends Component {
           <Text>{event.when}</Text>
         </View>
         <Text style={styles.text}>{event.url}</Text>
+        <View style={styles.button}>
+          <Button
+            onPress={this.handleDelete}
+            title="Delete Event"
+            color="#F55"
+          />
+        </View>
+        <ConfirmModal visible={this.state.confirmModal}
+                      onConfirm={this.confirmDelete}
+                      onCancel={this.cancelDelete}
+        >
+          Are you sure you want to delete "{event.title}"
+        </ConfirmModal>
       </View>
     );
   }
+
+  handleDelete = () => {
+    this.setState({
+      confirmModal: true
+    });
+  };
+
+  confirmDelete = () => this.setState({ confirmModal: false });
+  cancelDelete = () => this.setState({ confirmModal: false });
 }
 
 const styles = StyleSheet.create({
@@ -53,6 +79,11 @@ const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 100
+  },
+  button: {
+    width: "100%",
+    height: 100,
+    marginBottom: 30
   }
 });
 
