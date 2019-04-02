@@ -3,13 +3,17 @@
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
+    "reset": "npm start --reset-cache",
     "ios": "expo start --ios",
     "eject": "expo eject",
     "react-devtools": "react-devtools"
   },
   "dependencies": {
     "expo": "^32.0.0",
+    "firebase": "^5.9.2",
     "lodash": "^4.17.11",
+    "mobx": "^5.9.0",
+    "mobx-react": "^5.4.3",
     "react": "16.5.0",
     "react-native": "^0.59.2",
     "react-navigation": "^3.5.1"

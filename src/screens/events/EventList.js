@@ -9,6 +9,8 @@ class EventListScreen extends Component {
   };
 
   render() {
+    console.log("-----", this.props);
+
     return <EventList onEventPress={this.handleEventPress}/>;
   }
 

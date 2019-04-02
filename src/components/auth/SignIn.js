@@ -1,18 +1,17 @@
 import React, { Component } from "react";
+import { observer } from "mobx-react";
+import firebase from "firebase";
 import {
   View, Text, TextInput,
   TouchableOpacity,
   Platform, StyleSheet
 } from "react-native";
+import userStore from "../../stores/user";
 
+@observer
 class SignIn extends Component {
-  state = {
-    email: "",
-    password: ""
-  };
-
   render() {
-    const { email, password } = this.state;
+    const { email, password } = userStore;
     return (
       <View style={styles.view}>
         <Text style={styles.header}>Please Sign In</Text>
@@ -36,15 +35,20 @@ class SignIn extends Component {
   }
 
   signIn = () => {
+    firebase.auth().signInWithEmailAndPassword(userStore.email, userStore.password)
+      .then((user) => {
+        userStore.user = user;
+        this.props.navigate('eventList')
+      });
     console.log("-----", "signIn", this.state);
   };
 
-  setPassword = password => this.setState({ password });
-  setEmail = email => this.setState({ email });
+  setPassword = password => userStore.password = password;
+  setEmail = email => userStore.email = email;
 }
 
 const styles = StyleSheet.create({
-  view:{
+  view: {
     // borderWidth: 2,
     // borderColor: '#f00',
     padding: 20
