@@ -1,3 +1,4 @@
+import "./src/initFB";
 import React from "react";
 import AppNavigator from "./src/AppNavigator";
 
