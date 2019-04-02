@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import { TouchableOpacity, Text, View, StyleSheet, ScrollView, SectionList } from "react-native";
-import { eventList } from "../../fixtures";
 import EventCard from "./EventCard";
 import groupBy from "lodash/groupBy";
 
 class EventList extends Component {
-  static defaultProps = {
-    events: eventList
-  };
-
   render() {
-    const {onEventPress, events} = this.props;
+    const { onEventPress, events } = this.props;
     const grouped = groupBy(events, event => event.title.charAt(0));
     const sections = Object.entries(grouped).map(([letter, list]) => ({
       title: `${letter}, ${list.length} events`,
