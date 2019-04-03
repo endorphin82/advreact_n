@@ -7,6 +7,7 @@ import {
   Platform, StyleSheet
 } from "react-native";
 
+
 @inject("user")
 @observer
 class SignIn extends Component {
@@ -40,7 +41,9 @@ class SignIn extends Component {
     firebase.auth().signInWithEmailAndPassword(user.email, user.password)
       .then((userEntity) => {
         user.user = userEntity;
-        this.props.navigate("eventList");
+
+
+
       });
     console.log("-----", "signIn", this.state);
   };
