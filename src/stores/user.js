@@ -6,15 +6,13 @@ class User extends BasicStore {
   constructor(...args) {
     super(...args);
 
-    firebase.auth().onAuthStateChanged(user => {
-      this.getStore("navigation").reset("eventList");
-    });
+    firebase.auth().onAuthStateChanged(user => this.user = user);
   }
 
   @observable email: "";
   @observable password: "";
 
-  user: null;
+  @observable user: null;
 }
 
 export default User();
