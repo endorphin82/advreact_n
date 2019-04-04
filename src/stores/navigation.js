@@ -9,7 +9,6 @@ class Navigation extends BasicStore {
 
     autorun(() => {
       const userStore = this.getStore("user");
-      if (!userStore) return;
       const routeName = userStore.user ? "lists" : "auth";
       this.reset(routeName);
     });
