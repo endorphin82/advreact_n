@@ -40,6 +40,10 @@ class Navigation extends BasicStore {
 
     this.dispatch(action);
   }
+
+  @action goTo(routeName, params) {
+    this.dispatch(NavigationActions.navigate({ routeName, params }));
+  }
 }
 
 export default Navigation;
