@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Button, View, Image, Text, StyleSheet } from "react-native";
 import { eventList } from "../../fixtures";
 import ConfirmModal from "../common/ConfirmModal";
+import { observer } from "mobx-react";
 
+@observer
 class Event extends Component {
   static defaultProps = {
     event: eventList[0]
@@ -42,9 +44,10 @@ class Event extends Component {
   }
 
   handleDelete = () => {
-    this.setState({
-      confirmModal: true
-    });
+    this.props.event.month = "BABABABA";
+    // this.setState({
+    //   confirmModal: true
+    // });
   };
 
   confirmDelete = () => this.setState({ confirmModal: false });

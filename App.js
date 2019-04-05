@@ -1,11 +1,11 @@
 import "./src/initFB";
 import React from "react";
-import { Provider, abserver } from "mobx-react";
+import { Provider, observer } from "mobx-react";
 import {addNavigationHelpers} from 'react-navigation'
 import AppNavigator from "./src/AppNavigator";
 import stores from "./src/stores";
 
-@abserver
+@observer
 export default class App extends React.Component {
   render() {
     return (

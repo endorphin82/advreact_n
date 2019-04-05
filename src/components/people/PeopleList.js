@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { abserver, inject } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import { TouchableOpacity, SectionList, StyleSheet, ActivityIndicator } from "react-native";
 import PersonCard from "./PeopleCard";
 
 @inject("people")
-@abserver
+@observer
 class PeopleList extends Component {
   static defaultProps = {
     onPersonPress: () => {
