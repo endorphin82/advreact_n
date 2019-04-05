@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Button, View, Image, Text, StyleSheet } from "react-native";
+import { Button, View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { eventList } from "../../fixtures";
 import ConfirmModal from "../common/ConfirmModal";
 import { observer } from "mobx-react";
+import { web } from "react-native-communications";
 
 @observer
 class Event extends Component {
@@ -25,7 +26,9 @@ class Event extends Component {
           <Text>{event.where}</Text>
           <Text>{event.when}</Text>
         </View>
-        <Text style={styles.text}>{event.url}</Text>
+        <TouchableOpacity onPress={this.goToURL}>
+          <Text style={styles.text}>{event.url}</Text>
+        </TouchableOpacity>
         <View style={styles.button}>
           <Button
             onPress={this.handleDelete}
@@ -42,6 +45,10 @@ class Event extends Component {
       </View>
     );
   }
+
+  goToURL = () => {
+    web(this.props.event.url);
+  };
 
   handleDelete = () => {
     this.props.event.month = "BABABABA";
