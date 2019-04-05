@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import {Text, Image, View, StyleSheet } from "react-native";
 import Card from "../common/Card";
-import { abserver } from "mobx-react";
+import { observer } from "mobx-react";
 
-@abserver
+@observer
 class PeopleCard extends Component {
   render() {
     const { email, firstName, lastName } = this.props.person;
